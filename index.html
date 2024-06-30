@@ -1,316 +1,287 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Blog Landing Page</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <style>
-    
-      body,
-      html {
-        height: 100%;
-        margin: 0;
-      }
 
-      .scroller {
-        scroll-behavior: smooth;
-      }
-    </style>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: ["Inter", "ui-sans-serif", "system-ui"],
-              serif: ["Merriweather", "serif"],
-              mono: ["Fira Code", "monospace"],
-              urbanist: ["Urbanist"]
-            },
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog Landing Page</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <style>
+    body,
+    html {
+      height: 100%;
+      margin: 0;
+    }
+
+    .scroller {
+      scroll-behavior: smooth;
+    }
+  </style>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ["Inter", "ui-sans-serif", "system-ui"],
+            serif: ["Merriweather", "serif"],
+            mono: ["Fira Code", "monospace"],
+            urbanist: ["Urbanist"]
           },
         },
-      };
-    </script>
-  </head>
+      },
+    };
+  </script>
+</head>
 
-  <body class="flex flex-col h-full bg-gray-100 font-urbanist">
-    <!-- Navigation -->
-    <nav class="bg-white shadow-md w-full fixed top-0 z-10">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16">
-          <div class="flex">
-            <div class="flex-shrink-0 flex items-center">
-              <img class="h-8 w-8" src="content/Nova_HR_2019.svg" alt="Logo" />
-            </div>
-            <div class="hidden md:ml-6 md:flex md:space-x-8">
-              <a
-                href="#one"
-                class="border-transparent text-gray-500 hover:text-gray-700 inline-flex items-center px-1 pt-1 text-sm font-medium"
-                >About</a
-              >
-              <a
-                href="#four"
-                class="border-transparent text-gray-500 hover:text-gray-700 inline-flex items-center px-1 pt-1 text-sm font-medium"
-                >Categories</a
-              >
-            </div>
+<body class="flex flex-col h-full bg-gray-100 font-urbanist">
+  <!-- Navigation -->
+  <nav class="bg-white shadow-md w-full fixed top-0 z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        <div class="flex">
+          <div class="flex-shrink-0 flex items-center">
+            <img class="h-8 w-8" src="content/Nova_HR_2019.svg" alt="Logo" />
           </div>
-          <div class="flex items-center md:hidden">
-            <button
-              type="button"
-              id="menu-button"
-              class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500"
-              aria-expanded="false"
-            >
-              <span class="sr-only">Open main menu</span>
-              <i id="menu-icon" class="fas fa-bars h-6 w-6"></i>
-              <i id="close-icon" class="fas fa-times h-6 w-6 hidden"></i>
-            </button>
+          <div class="hidden md:ml-6 md:flex md:space-x-8">
+            <a href="#one"
+              class="border-transparent text-gray-500 hover:text-gray-700 inline-flex items-center px-1 pt-1 text-sm font-medium">About</a>
+            <a href="#four"
+              class="border-transparent text-gray-500 hover:text-gray-700 inline-flex items-center px-1 pt-1 text-sm font-medium">Categories</a>
           </div>
+        </div>
+        <div class="flex items-center md:hidden">
+          <button type="button" id="menu-button"
+            class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500"
+            aria-expanded="false">
+            <span class="sr-only">Open main menu</span>
+            <i id="menu-icon" class="fas fa-bars h-6 w-6"></i>
+            <i id="close-icon" class="fas fa-times h-6 w-6 hidden"></i>
+          </button>
         </div>
       </div>
-
-      <!-- Mobile menu, show/hide based on menu state. -->
-      <div id="mobile-menu" class="md:hidden hidden">
-        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-          <a
-            href="#one"
-            class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 menu-item"
-            >About</a
-          >
-          <a
-            href="#four"
-            class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 menu-item"
-            >Categories</a
-          >
-        </div>
-      </div>
-    </nav>
-
-    <!-- Main Content Wrapper -->
-    <div class="flex-1 mt-16 overflow-y-auto scroller">
-      <div class="w-full h-2/3 bg-red-400 aspect-auto bg-no-repeat" style="background-image: url(content/PrimostenWide.png); background-position: top left; background-size: cover;">
-        <div class="flex flex-col h-full text-white bg-cyan-800 bg-opacity-60">
-          <h1 class="text-2xl md:text-5xl w-1/2 mx-10 md:mx-20 pt-10 md:pt-20 uppercase tracking-wide">Kako uštedjeti novac na ljetnom odmoru u Hrvatskoj</h1>
-          <h3 class="text-lg md:text-3xl mx-10 md:mx-20 pt-10 md:pt-20 md:w-1/2">Hrvatska, sa svojom prekrasnom jadranskom obalom, povijesnim gradovima i bogatom kulturom, omiljena je destinacija za ljetni odmor. Iako može biti skupa, postoje mnogi načini da uživate u pristupačnom odmoru bez kompromisa na iskustvu. Evo nekoliko savjeta kako uštedjeti novac na ljetnom odmoru u Hrvatskoj:</h3>
-        </div>
-      </div>
-      <main class="pt-8">
-        
-        <div id="one" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="order-1 md:order-1">
-              <img
-                class="w-full rounded-lg"
-                src="content/cesta.png"
-                alt="Bouquet of Fresh Flowers"
-              />
-            </div>
-            <div class="order-2 md:order-2">
-              <h2 class="text-3xl md:text-4xl font-bold mb-4 uppercase tracking-wide pt-10 md:pt-40">
-                Putujte Kada Nitko Drugi Ne Putuje
-              </h2>
-              <p class="text-gray-700 mb-4 text-lg pb-10">
-                Svi znamo da je srpanj i kolovoz vrijeme kada cijene skaču u nebo. Zato, ako možete, putujte u lipnju ili rujnu. Osim što će vam novčanik biti sretniji, nećete morati boriti se za mjesto na plaži kao gladijatori.
-              </p>
-              <p class="text-gray-700">
-                
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div id="two" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="order-1 md:order-2">
-              <img
-                class="w-full rounded-lg"
-                src="content/avion.png"
-                alt="Bouquet of Fresh Flowers"
-              />
-            </div>
-
-            <div class="order-2 md:order-1">
-              <h2 class="text-3xl md:text-4xl font-bold mb-4 uppercase tracking-wide pt-10 md:pt-40">
-                Lov na Jeftine Letove
-              </h2>
-              <p class="text-gray-700 mb-4 text-lg pb-10">
-                Postanite pravi lovac na jeftine letove! Koristite alate kao što su Skyscanner ili Google Flights, i postavite upozorenja. Ponekad su letovi u 3 ujutro jeftiniji – tko treba san kad imate more koje vas čeka?
-              </p>
-              <p class="text-gray-700">
-               
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div id="three" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="order-1 md:order-1">
-              <img
-                class="w-full rounded-lg"
-                src="content/kampiranje.png"
-                alt="Bouquet of Fresh Flowers"
-              />
-            </div>
-            <div class="order-2 md:order-2">
-              <h2 class="text-3xl md:text-4xl font-bold mb-4 uppercase tracking-wide pt-10 md:pt-40">
-                Budžetski Smještaj – Spavanje s Stilom
-              </h2>
-              <p class="text-gray-700 mb-4 text-lg pb-10">
-                Zaboravite luksuzne hotele, budimo realni, tko treba bazen kad imate cijeli Jadran?
-              <ul class="pb-10 text-lg">
-                <li class="pb-5"><span class="font-bold text-red-600">Hosteli:</span> Savršeni za upoznavanje novih ljudi i možda otkrivanje tko je zaista hrkao cijelu noć.</li>
-                <li class="pb-5"><span class="font-bold  text-red-600">Airbnb:</span> Savršeno ako želite glumiti lokalnog stanovnika, barem na nekoliko dana.</li>
-                <li class="pb-5"><span class="font-bold  text-red-600">Kampiranje:</span> Ako želite izvući maximum iz prirode i minimum iz novčanika.</li>
-              </ul>
-              </p>
-              
-            </div>
-          </div>
-        </div>
-
-        <div id="four" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="order-1 md:order-2">
-              <img
-                class="w-full rounded-lg"
-                src="content/trajekt.png"
-                alt="Bouquet of Fresh Flowers"
-              />
-            </div>
-
-            <div class="order-2 md:order-1">
-              <h2 class="text-3xl md:text-4xl font-bold mb-4 uppercase tracking-wide pt-10 md:pt-40">
-                Javni Prijevoz – Avantura za Sebe
-              </h2>
-              <p class="text-gray-700 mb-4 text-lg pb-10">
-                Rentanje automobila može biti skupo. Umjesto toga, koristite javni prijevoz. Autobusi su povoljni, a trajekti su odličan način za otkrivanje otoka bez prodaje svojih vitalnih organa.
-              </p>
-             
-            </div>
-          </div>
-        </div>
-        <div id="five" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="order-1 md:order-1">
-              <img
-                class="w-full rounded-lg"
-                src="content/plac.png"
-                alt="Bouquet of Fresh Flowers"
-              />
-            </div>
-            <div class="order-2 md:order-2">
-              <h2 class="text-3xl md:text-4xl font-bold mb-4 uppercase tracking-wide pt-10 md:pt-40">
-                Jedite kao Kralj za Cijenu Pauze za Kavu              
-              </h2>
-              <p class="text-gray-700 mb-4 text-lg pb-10">
-                Restorani na glavnim turističkim lokacijama mogu biti skupi, ali postoje povoljne opcije koje su jednako ukusne:
-                <ul class="text-lg pb-10">
-                  <li class="pb-5"><span class="font-bold  text-red-600">Tržnice:</span> Kupite svježe namirnice i pripremite piknik. Ništa ne kaže „ljeto“ kao ručak na plaži.</li>
-                  <li class="pb-5"><span class="font-bold text-red-600">Pekare:</span> Burek za doručak? Zašto ne! Jeftin je, ukusan i može poslužiti i kao uteg ako vam treba.</li>
-                  <li class="pb-5"><span class="font-bold text-red-600">Ulična Hrana:</span> Ćevapi ili pljeskavice su ukusni, jeftini i savršeni za brzo utažiti glad.</li>
-                </ul>
-              </p>
-              
-            </div>
-          </div>
-        </div>
-        <div id="six" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="order-1 md:order-2">
-              <img
-                class="w-full rounded-lg"
-                src="content/festival.png"
-                alt="Bouquet of Fresh Flowers"
-              />
-            </div>
-
-            <div class="order-2 md:order-1">
-              <h2 class="text-3xl md:text-4xl font-bold mb-4 uppercase tracking-wide pt-10 md:pt-40">
-                Besplatne i Jeftine Aktivnosti – More Zabave bez Puno Troškova
-              </h2>
-              <p class="text-gray-700 mb-4 text-lg pb-10">
-                Zašto plaćati kada možete uživati besplatno?
-                <ul class="pb-10 text-lg">
-                  <li class="pb-5"><span class="font-bold text-red-600">Plaže:</span> Kristalno čisto more i besplatni sunčani sati – neprocjenjivo.</li>
-                  <li class="pb-5"><span class="font-bold text-red-600">Planinarenje:</span> Hrvatska je puna prekrasnih staza. Uzmite bocu vode i krenite u osvajanje vrhova.</li>
-                  <li class="pb-5"><span class="font-bold text-red-600">Besplatni Festivali:</span> Tijekom ljeta, Hrvatska je domaćin mnogih besplatnih događanja. Tko treba skupe ulaznice kad imate besplatnu glazbu i zabavu?</li>
-                </ul>
-
-
-
-              </p>
-             
-            </div>
-           
-          </div>
-          
-        </div>
-        <div class="w-full h-[500px] bg-red-400">
-
-        </div>
-        <!-- Footer -->
-        <footer class="bg-white py-6">
-          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between">
-              <div>
-                <h3 class="text-lg font-bold">Useful Links</h3>
-                <ul class="mt-2 space-y-2">
-                  <li>
-                    <a href="#" class="text-gray-600 hover:text-gray-900"
-                      >Privacy Policy</a
-                    >
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <h3 class="text-lg font-bold">Follow Us</h3>
-                <ul class="mt-2 space-y-2">
-                  <li>
-                    <a href="#" class="text-gray-600 hover:text-gray-900"
-                      >Facebook</a
-                    >
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </footer>
-      </main>
     </div>
 
-    <script>
-      const menuButton = document.getElementById("menu-button");
-      const mobileMenu = document.getElementById("mobile-menu");
-      const menuIcon = document.getElementById("menu-icon");
-      const closeIcon = document.getElementById("close-icon");
-      const menuItems = document.querySelectorAll(".menu-item");
+    <!-- Mobile menu, show/hide based on menu state. -->
+    <div id="mobile-menu" class="md:hidden hidden">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a href="#one"
+          class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 menu-item">About</a>
+        <a href="#four"
+          class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 menu-item">Categories</a>
+      </div>
+    </div>
+  </nav>
 
-      menuButton.addEventListener("click", () => {
-        const expanded =
-          menuButton.getAttribute("aria-expanded") === "true" || false;
-        menuButton.setAttribute("aria-expanded", !expanded);
-        mobileMenu.classList.toggle("hidden");
-        menuIcon.classList.toggle("hidden");
-        closeIcon.classList.toggle("hidden");
-      });
+  <!-- Main Content Wrapper -->
+  <div class="flex-1 mt-16 overflow-y-auto scroller">
+    <div class="w-full h-2/3 bg-red-400 aspect-auto bg-no-repeat"
+      style="background-image: url(content/PrimostenWide.png); background-position: top left; background-size: cover;">
+      <div class="flex flex-col h-full text-white bg-cyan-800 bg-opacity-60 items-center justify-center py-16">
+        <h1 class="text-2xl md:text-5xl w-fit mx-10 md:mx-20 pt-10 md:pt-20 uppercase tracking-wide">
+          Kako
+          uštedjeti
+          novac na ljetnom odmoru u Hrvatskoj</h1>
+        <h3 class="text-lg md:text-3xl mx-10 md:mx-20 pt-10 md:pt-20 md:w-1/2">Hrvatska, sa svojom
+          prekrasnom
+          jadranskom
+          obalom, povijesnim gradovima i bogatom kulturom, omiljena je destinacija za ljetni odmor. Iako može biti
+          skupa, postoje mnogi načini da uživate u pristupačnom odmoru bez kompromisa na iskustvu. Evo nekoliko savjeta
+          kako uštedjeti novac na ljetnom odmoru u Hrvatskoj:</h3>
+      </div>
+    </div>
+    <main class="pt-8">
 
-      menuItems.forEach((item) => {
-        item.addEventListener("click", () => {
-          mobileMenu.classList.add("hidden");
-          menuIcon.classList.remove("hidden");
-          closeIcon.classList.add("hidden");
-          menuButton.setAttribute("aria-expanded", false);
-        });
+      <div id="one" class="max-w-7xl mx-auto px-2 md:pt-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="order-1 md:order-1 sm:pr-16">
+            <img class="w-full rounded-lg" src="content/cesta.png" alt="Bouquet of Fresh Flowers" />
+          </div>
+          <div class="order-2 md:order-2">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 uppercase tracking-wide pt-10 md:pt-40">
+              Putujte Kada Nitko Drugi Ne Putuje
+            </h2>
+            <p class="text-gray-700 mb-4 text-lg pb-10">
+              Svi znamo da je srpanj i kolovoz vrijeme kada cijene skaču u nebo. Zato, ako možete, putujte u lipnju ili
+              rujnu. Osim što će vam novčanik biti sretniji, nećete morati boriti se za mjesto na plaži kao gladijatori.
+            </p>
+            <p class="text-gray-700">
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div id="two" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 md:pt-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="order-1 md:order-2 sm:pl-16">
+            <img class="w-full rounded-lg" src="content/avion.png" alt="Bouquet of Fresh Flowers" />
+          </div>
+          <div class="order-2 md:order-1">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 uppercase tracking-wide pt-10 md:pt-40">
+              Lov na Jeftine Letove
+            </h2>
+            <p class="text-gray-700 mb-4 text-lg pb-10">
+              Postanite pravi lovac na jeftine letove! Koristite alate kao što su Skyscanner ili Google Flights, i
+              postavite upozorenja. Ponekad su letovi u 3 ujutro jeftiniji – tko treba san kad imate more koje vas čeka?
+            </p>
+            <p class="text-gray-700">
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div id="three" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 md:pt-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="order-1 md:order-1 sm:pr-16">
+            <img class="w-full rounded-lg" src="content/kampiranje.png" alt="Bouquet of Fresh Flowers" />
+          </div>
+          <div class="order-2 md:order-2">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 uppercase tracking-wide pt-10 md:pt-40">
+              Budžetski Smještaj – Spavanje s Stilom
+            </h2>
+            <p class="text-gray-700 mb-4 text-lg pb-10">
+              Zaboravite luksuzne hotele, budimo realni, tko treba bazen kad imate cijeli Jadran?
+            <ul class="pb-10 text-lg">
+              <li class="pb-5"><span class="font-bold text-red-600">Hosteli:</span> Savršeni za upoznavanje novih ljudi
+                i možda otkrivanje tko je zaista hrkao cijelu noć.</li>
+              <li class="pb-5"><span class="font-bold  text-red-600">Airbnb:</span> Savršeno ako želite glumiti lokalnog
+                stanovnika, barem na nekoliko dana.</li>
+              <li class="pb-5"><span class="font-bold  text-red-600">Kampiranje:</span> Ako želite izvući maximum iz
+                prirode i minimum iz novčanika.</li>
+            </ul>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div id="four" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 md:pt-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="order-1 md:order-2 sm:pl-16">
+            <img class="w-full rounded-lg" src="content/trajekt.png" alt="Bouquet of Fresh Flowers" />
+          </div>
+          <div class="order-2 md:order-1">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 uppercase tracking-wide pt-10 md:pt-40">
+              Javni Prijevoz – Avantura za Sebe
+            </h2>
+            <p class="text-gray-700 mb-4 text-lg pb-10">
+              Rentanje automobila može biti skupo. Umjesto toga, koristite javni prijevoz. Autobusi su povoljni, a
+              trajekti su odličan način za otkrivanje otoka bez prodaje svojih vitalnih organa.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div id="five" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 md:pt-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="order-1 md:order-1 sm:pr-16">
+            <img class="w-full rounded-lg" src="content/plac.png" alt="Bouquet of Fresh Flowers" />
+          </div>
+          <div class="order-2 md:order-2">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 uppercase tracking-wide pt-10 md:pt-40">
+              Jedite kao Kralj za Cijenu Pauze za Kavu
+            </h2>
+            <p class="text-gray-700 mb-4 text-lg pb-10">
+              Restorani na glavnim turističkim lokacijama mogu biti skupi, ali postoje povoljne opcije koje su jednako
+              ukusne:
+            <ul class="text-lg pb-10">
+              <li class="pb-5"><span class="font-bold  text-red-600">Tržnice:</span> Kupite svježe namirnice i
+                pripremite piknik. Ništa ne kaže „ljeto“ kao ručak na plaži.</li>
+              <li class="pb-5"><span class="font-bold text-red-600">Pekare:</span> Burek za doručak? Zašto ne! Jeftin
+                je, ukusan i može poslužiti i kao uteg ako vam treba.</li>
+              <li class="pb-5"><span class="font-bold text-red-600">Ulična Hrana:</span> Ćevapi ili pljeskavice su
+                ukusni, jeftini i savršeni za brzo utažiti glad.</li>
+            </ul>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div id="six" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 md:pt-16 pb-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="order-1 md:order-2 sm:pl-16">
+            <img class="w-full rounded-lg" src="content/festival.png" alt="Bouquet of Fresh Flowers" />
+          </div>
+          <div class="order-2 md:order-1 sm:pr-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 uppercase tracking-wide pt-10 md:pt-40">
+              Besplatne i Jeftine Aktivnosti – More Zabave bez Puno Troškova
+            </h2>
+            <p class="text-gray-700 mb-4 text-lg pb-10">
+              Zašto plaćati kada možete uživati besplatno?
+            <ul class="pb-10 text-lg">
+              <li class="pb-5"><span class="font-bold text-red-600">Plaže:</span> Kristalno čisto more i besplatni
+                sunčani sati – neprocjenjivo.</li>
+              <li class="pb-5"><span class="font-bold text-red-600">Planinarenje:</span> Hrvatska je puna prekrasnih
+                staza. Uzmite bocu vode i krenite u osvajanje vrhova.</li>
+              <li class="pb-5"><span class="font-bold text-red-600">Besplatni Festivali:</span> Tijekom ljeta, Hrvatska
+                je domaćin mnogih besplatnih događanja. Tko treba skupe ulaznice kad imate besplatnu glazbu i zabavu?
+              </li>
+            </ul>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="w-full bg-red-400 aspect-auto bg-no-repeat"
+        style="background-image: url(content/PrimostenWide.png); background-position: top left; background-size: cover;">
+        <div class="flex flex-col h-full text-white bg-cyan-800 bg-opacity-60 items-center justify-center py-16">
+          <h1 class="text-2xl md:text-5xl w-3/4 md:w-1/2 text-center uppercase tracking-wide">Zakljucak</h1>
+          <h3 class="text-lg md:text-3xl w-3/4 md:w-1/2 text-center pt-10 md:pt-20">Ovo je nas zakljucak</h3>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <footer class="bg-white py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex justify-between">
+            <div>
+              <h3 class="text-lg font-bold">Useful Links</h3>
+              <ul class="mt-2 space-y-2">
+                <li>
+                  <a href="#" class="text-gray-600 hover:text-gray-900">Privacy Policy</a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold">Follow Us</h3>
+              <ul class="mt-2 space-y-2">
+                <li>
+                  <a href="#" class="text-gray-600 hover:text-gray-900">Facebook</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    const menuButton = document.getElementById("menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const menuIcon = document.getElementById("menu-icon");
+    const closeIcon = document.getElementById("close-icon");
+    const menuItems = document.querySelectorAll(".menu-item");
+
+    menuButton.addEventListener("click", () => {
+      const expanded =
+        menuButton.getAttribute("aria-expanded") === "true" || false;
+      menuButton.setAttribute("aria-expanded", !expanded);
+      mobileMenu.classList.toggle("hidden");
+      menuIcon.classList.toggle("hidden");
+      closeIcon.classList.toggle("hidden");
+    });
+
+    menuItems.forEach((item) => {
+      item.addEventListener("click", () => {
+        mobileMenu.classList.add("hidden");
+        menuIcon.classList.remove("hidden");
+        closeIcon.classList.add("hidden");
+        menuButton.setAttribute("aria-expanded", false);
       });
-    </script>
-  </body>
-</html>
+    });
+  </script>
+</body>
